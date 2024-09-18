@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <form method="GET" action="{% url 'search_subtitles' %}">
+        <input type="text" name="query" value="{{ query }}" placeholder="Search subtitles...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if subtitles %}
+        <ul>
+            {% for subtitle in subtitles %}
+                <li>{{ subtitle.text }} (Timestamp: {{ subtitle.timestamp }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No subtitles found for the query.</p>
+    {% endif %}
+</body>
+</html>

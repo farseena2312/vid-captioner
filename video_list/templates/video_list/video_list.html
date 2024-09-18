@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Videos</title>
+</head>
+<body>
+
+    <a href="{% url 'video_upload:video_upload' %}">Upload video.</a>
+
+    <h1>Uploaded Videos</h1>
+
+    <ul>
+        {% for video in videos %}
+            <li>
+                <a href="{% url 'video_list:video_detail' video.id %}">{{ video.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ video.title }}</title>
+</head>
+<body>
+    <a href="{% url 'video_list:video_list' %}">Back to video list</a>
+
+    <h1>{{ video.title }}</h1>
+
+    <video width="600" controls>
+        <source src="{{ video.video_file.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2>Subtitles:</h2>
+    <ul>
+        {% for subtitle in subtitles %}
+            <li>{{ subtitle.text }} (Timestamp: {{ subtitle.timestamp }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
